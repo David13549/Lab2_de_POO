@@ -1,0 +1,16 @@
+# Ignorar node_modules
+node_modules/
+
+# Ignorar archivos de salida de TypeScript
+dist/
+build/
+
+# Ignorar archivos del sistema (opcional)
+.DS_Store
+Thumbs.db
+
+# Ignorar logs (opcional)
+*.log
+
+# Package lock
+# package-lock.json

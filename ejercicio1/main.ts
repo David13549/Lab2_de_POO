@@ -1,4 +1,4 @@
-import readline from "readline";
+import * as readline from 'readline';
 import { EmployeeService } from "./services/EmployeeService";
 import { Department } from "./enums/Department";
 import { Position } from "./enums/Position";
@@ -15,7 +15,7 @@ const rl = readline.createInterface({
 });
 
 function mostrarMenu() {
-  console.log("\n--- Sistema de Gestión de Recursos Humanos ---");
+  console.log("--- Sistema de Gestión de Recursos Humanos ---");
   console.log("1. Agregar empleado");
   console.log("2. Ver empleados");
   console.log("3. Actualizar contacto");
@@ -52,7 +52,7 @@ function agregarEmpleado() {
     rl.question("Nombre: ", (name) => {
       rl.question("Apellido: ", (lastName) => {
         rl.question("Correo electrónico: ", (email) => {
-          rl.question("Teléfono (8 dígitos): ", (phone) => {
+          rl.question("Teléfono (10 dígitos): ", (phone) => {
             rl.question("Departamento (IT, HR, SALES, MARKETING, FINANCE, LOGISTICS): ", (dept) => {
               rl.question("Cargo (INTERN, ASSISTANT, ANALYST, MANAGER, DIRECTOR): ", (pos) => {
                 const data: EmployeeData = {

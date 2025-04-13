@@ -29,7 +29,7 @@ async function main() {
   const goalStr = await ask('Meta financiera (USD): ');
   const goal = parseFloat(goalStr);
   if (isNaN(goal) || goal <= 0) {
-    console.error('\n❌ Error: La meta financiera debe ser un número mayor a cero.');
+    console.error('Error: La meta financiera debe ser un número mayor a cero.');
     rl.close();
     return;
   }
@@ -37,7 +37,7 @@ async function main() {
   const deadlineStr = await ask('Fecha límite (YYYY-MM-DD): ');
   const deadlineDate = new Date(deadlineStr);
   if (deadlineDate < new Date()) {
-    console.error('\n❌ Error: La fecha límite del proyecto no puede ser anterior a la fecha actual.');
+    console.error(' Error: La fecha límite del proyecto no puede ser anterior a la fecha actual.');
     rl.close();
     return;
   }
@@ -79,29 +79,29 @@ async function main() {
   console.log('\n=== CERTIFICADO DE DONACIÓN ===');
   console.log(certificate.generateText());
 
-  console.log(`\n📅 Fecha límite del proyecto: ${project.deadline.toLocaleDateString()}`);
+  console.log(` Fecha límite del proyecto: ${project.deadline.toLocaleDateString()}`);
   const progress = project.getProgress();
   const progressBarLength = 30;
   const filledLength = Math.round((progress / 100) * progressBarLength);
   const bar = '█'.repeat(filledLength) + '-'.repeat(progressBarLength - filledLength);
 
   // Colores ANSI (verde si llega al 100%)
-  const colorStart = progress >= 100 ? '[32m' : ''; // Verde
-  const colorEnd = progress >= 100 ? '[0m' : '';
+  const colorStart = progress >= 100 ? '[32m' : ''; // Verde
+  const colorEnd = progress >= 100 ? '[0m' : '';
 
-  console.log(`📊 Progreso actual del proyecto: ${colorStart}[${bar}] ${progress.toFixed(2)}%${colorEnd}`);
+  console.log(` Progreso actual del proyecto: ${colorStart}[${bar}] ${progress.toFixed(2)}%${colorEnd}`);
   if (progress >= 100) {
-    console.log('\n🎁 Usted ha recibido sus recompensas. ¡Gracias por apoyar el proyecto!');
+    console.log('\n Usted ha recibido sus recompensas. ¡Gracias por apoyar el proyecto!');
   }
-  console.log('\n🎯 Metas parciales:');
+  console.log('\n Metas parciales:');
   console.log(project.checkReachedGoals().join('\n') || 'Ninguna meta alcanzada aún');
 
-  console.log('\n💬 Comentarios ingresados:');
+  console.log('\n Comentarios ingresados:');
   project.comments.length
     ? project.comments.forEach((c, i) => console.log(`  ${i + 1}. ${c}`))
     : console.log('  No hay comentarios.');
 
-  console.log('\n🔄 Actualizaciones del proyecto:');
+  console.log('\n Actualizaciones del proyecto:');
   project.updates.length
     ? project.updates.forEach((u, i) => console.log(`  ${i + 1}. ${u}`))
     : console.log('  No hay actualizaciones.');

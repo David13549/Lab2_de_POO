@@ -1,0 +1,16 @@
+{
+    "name": "crowdfunding-platform",
+    "version": "1.0.0",
+    "description": "Plataforma para financiamiento colectivo con TypeScript y POO",
+    "main": "dist/index.js",
+    "scripts": {
+        "build": "tsc",
+        "start": "npm run build && node dist/index.js"
+    },
+    "keywords": [],
+    "author": "TuNombre",
+    "license": "MIT",
+    "devDependencies": {
+        "typescript": "^5.8.3"
+    }
+}
